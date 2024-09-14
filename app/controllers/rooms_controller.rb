@@ -12,6 +12,10 @@ class RoomsController < ApplicationController
     @single_room = Room.find(params[:id])
     @message = Message.new
     @messages = @single_room.messages.order(created_at: :asc)
+    if @single_room.is_private
+      @user = @single_room.other_participant(current_user)
+    end
+
     render :index
   end
 
