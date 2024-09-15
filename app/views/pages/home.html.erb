@@ -3,7 +3,12 @@
 
 <% if current_user %>
   <%= link_to "Start Chattins", rooms_path %>
-  <%= button_to "Logout", destroy_user_session_path, method: :delete %>
+  <%= link_to "edit Profile", edit_user_registration_path %>
+  <% if current_user.image.attached? %>
+    <%= image_tag current_user.image, size: "100x100" %>
+  <% else %>
+    <%= image_tag "default_image.png", size: "100x100" %>
+  <% end %>
 <% else %>
   <%= link_to "Login", new_user_session_path %>
   <%= link_to "Sign up", new_user_registration_path %>
