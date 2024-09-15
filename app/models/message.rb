@@ -3,6 +3,8 @@ class Message < ApplicationRecord
   belongs_to :room
   after_create_commit { broadcast_append_to room }
 
+  has_one_attached :image
+  
   before_create :confirm_participant
 
   def confirm_participant

@@ -13,6 +13,9 @@
   </div>
   <div class="msg-content">
     <%= message.body %>
+    <% if message&.image.attached? %>
+      <%= image_tag message&.image, size: "100x100" %>
+    <% end %>
   </div>
   </div>
 </div>
