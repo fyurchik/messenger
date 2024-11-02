@@ -1,3 +1,17 @@
-<nav class="navbar navbar-light custom-navbar">
-  <span class="navbar-brand mb-0 h1">Messenger</span>
+<nav class="navbar navbar-dark bg-success custom-navbar d-flex justify-content-between px-3">
+  <div class="d-flex align-items-center">
+    <%= link_to "Messenger", rooms_path, class: "navbar-brand mb-0 h1" %>
+  </div>
+
+  <% if current_user %>
+    <div class="d-flex align-items-center">
+      <%= link_to edit_user_registration_path, class: 'd-flex align-items-center' do %>
+        <% if current_user.image.attached? %>
+          <%= image_tag current_user.image,size: "40x40", class: "rounded-circle", alt: "User Avatar" %>
+        <% else %>
+          <%= image_tag "default_image.png", size: "40x40", class: "rounded-circle", alt: "Default Avatar" %>
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
 </nav>

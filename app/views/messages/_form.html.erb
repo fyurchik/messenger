@@ -2,7 +2,6 @@
 <%= form_with(model: [@single_room, @message], remote: true, class:"d-flex",
 data: {controller: "reset-form", action: "turbo:submit-end->reset-form#reset"}) do |f| %>
   <%= f.text_field :body, id: "chat_text", class: "form-control msg-content", autocomplete: "off" %>
-  <%= f.submit data: { disable_with: false }, class: "btn btn-primary", style: "background-color: #008000; color: white; font-size: smaller;" %>
-  <%= f.file_field :image, class: "btn btn-sm btn-secondary" %>
+  <%= f.submit "Submit", data: { disable_with: false }, class: "btn btn-success", style: "font-size: smaller;" %>
   <% end %>
 </div>
